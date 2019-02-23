@@ -9,7 +9,7 @@ namespace UnitTest
     {
         private int Value { get; set; }
         private int ExpectedValue { get; set; }
-        private int Res { get; set; }
+        private Nullable<int> Res { get; set; }
         private int MidleItem { get; set; }
         private int FirstItem { get; set; }
         private int LastItem { get; set; }

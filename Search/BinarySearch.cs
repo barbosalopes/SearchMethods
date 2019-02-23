@@ -7,30 +7,26 @@ using System.Threading.Tasks;
 namespace Search
 {
     public static class BinarySearch
-    {
-
-        private static int GetMidleItemPos(int[] array)
+    {      
+        public static Nullable<int> Search(int[] array, int value)
         {
-            return (int)Math.Truncate((double)array.Length/2);
-            
-        }
+            int midleItemPos = (int)Math.Truncate((double)array.Length / 2);
 
-        private static int[] GetNewArrayWithLowerItems(int[] array, int pos)
-        {
-            return (int[])array.Take(pos-1);
-        }
-
-        public static int Search(int[] array, int value)
-        {
-            int midleItemPos = GetMidleItemPos(array);
-            int midleItem = array[midleItemPos];
-
-            if(value == midleItemPos)
-                return array[midleItemPos];
-            else 
-                if(value < midleItem)
-                    return Search(GetNewArrayWithLowerItems(array, pos), value)
-                else 
+            if (midleItemPos == 0)
+                return null;
+            else
+            {
+                int midleItem = array[midleItemPos];
+                if (value == midleItemPos)
+                    return array[midleItemPos];
+                else
+                {
+                    if (value < midleItem)
+                        return Search(new ArraySegment<int>(array, 1, 2), value);
+                    else
+                        //return Search(new ArraySegment<string>(a, 1, 2);, value);
+                }
+            }
         }   
     }
 }
